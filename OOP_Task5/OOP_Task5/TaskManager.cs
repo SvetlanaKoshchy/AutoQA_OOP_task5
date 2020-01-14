@@ -17,7 +17,6 @@ namespace OOP_Task5
 
         public void AddTask()
         {
-
             Task task = new Task(EnterSummary(), EnterPriority(), EnterDifficulty());
             TaskList.Add(task);
         }
