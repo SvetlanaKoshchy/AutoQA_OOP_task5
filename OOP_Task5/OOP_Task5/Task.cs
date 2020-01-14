@@ -6,25 +6,56 @@ namespace OOP_Task5
 {
     class Task
     {
-        private int _taskId;
-        private int _priority;
-        private int _complexity;
-        private string _taskDescription;
 
-        //property taskId
-        public int TaskId
+        private string _summary;
+        private Priority _priority;
+        private Difficulty _difficulty;
+
+        //constructor
+        public Task(string summary, Priority priority, Difficulty difficulty)
+        {
+            _summary = summary;
+            _priority = priority;
+            _difficulty = difficulty;
+        }
+
+        //property Summary
+        public string TaskSummary
         {
             get
             {
-                return _taskId;
+                return _summary;
             }
             set
             {
-                _taskId = value;
+                _summary = value;
+            }            
+        }
 
+        //property Priority
+        public Priority Priority
+        {
+            get
+            {
+                return _priority;
             }
+            set
+            {
+                _priority = value;
+            }
+        }
 
-
+        //property Difficulty
+        public Difficulty Difficulty
+        {
+            get
+            {
+                return _difficulty;
+            }
+            set
+            {
+                _difficulty = value;
+            }
         }
 
     }

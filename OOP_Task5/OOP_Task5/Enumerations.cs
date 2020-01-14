@@ -4,6 +4,6 @@ using System.Text;
 
 namespace OOP_Task5
 {
-    public enum Priority { High, Meduim, Low }
-    public enum Difficulty { Hard = 4, Medium = 2, Easy = 1 }
+    public enum Priority { High=1, Meduim, Low }
+    public enum Difficulty { Hard=1 , Medium , Easy }
 }

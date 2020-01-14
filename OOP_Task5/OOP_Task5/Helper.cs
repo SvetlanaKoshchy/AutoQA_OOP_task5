@@ -9,8 +9,8 @@ namespace OOP_Task5
         //method to get user's tasks
         public void EnterTaskWithData()
         {
-            Console.WriteLine(Constants.enterTask);
-            string inputTask = Console.ReadLine();
+            //Console.WriteLine(Constants.enterTask);
+            //string inputTask = Console.ReadLine();
         }
 
         //method to get user's available days
