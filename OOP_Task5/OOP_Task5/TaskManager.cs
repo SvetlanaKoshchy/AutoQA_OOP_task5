@@ -6,9 +6,7 @@ namespace OOP_Task5
     public class TaskManager
     {
         private List<Task> TaskList = new List<Task>();
-        //private static ValidationHelper validationHelper;
-
-        ValidationHelper validationHelper = new ValidationHelper();
+        private ValidationHelper validationHelper = new ValidationHelper();
 
 
         //public void EnterNewTasks()
@@ -34,7 +32,7 @@ namespace OOP_Task5
             if (string.IsNullOrWhiteSpace(inputString))
             {
                 Console.WriteLine(Constants.errorWrongSummary);
-                
+
                 return EnterSummary();
             }
             else
@@ -46,9 +44,8 @@ namespace OOP_Task5
         public Priority EnterPriority()
         {
             Console.WriteLine(Constants.enterTaskPriority);
-
             string priorityInput = Console.ReadLine();
-           
+
             if (validationHelper.IsNumeric(priorityInput) == true)
             {
                 Priority priority = (Priority)Convert.ToInt32(priorityInput);
@@ -58,7 +55,7 @@ namespace OOP_Task5
             {
                 return EnterPriority();
             }
-          
+
         }
 
         public Difficulty EnterDifficulty()
@@ -67,7 +64,7 @@ namespace OOP_Task5
 
             string difficultyInput = Console.ReadLine();
             Difficulty difficulty = (Difficulty)Convert.ToInt32(difficultyInput);
-            
+
             return difficulty;
         }
 
