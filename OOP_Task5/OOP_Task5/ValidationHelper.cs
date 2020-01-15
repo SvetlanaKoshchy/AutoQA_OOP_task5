@@ -13,7 +13,8 @@ namespace OOP_Task5
                 return true;
             }
             else
-            {               
+            {
+                Console.WriteLine(Constants.errorValueIsWrong);
                 return false;
             }
         }

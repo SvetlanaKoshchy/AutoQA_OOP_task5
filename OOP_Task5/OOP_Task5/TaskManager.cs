@@ -26,11 +26,13 @@ namespace OOP_Task5
         public string EnterSummary()
         {
             Console.WriteLine(Constants.enterTaskSummary);
+
             string inputString = Console.ReadLine();
 
             if (string.IsNullOrWhiteSpace(inputString))
             {
                 Console.WriteLine(Constants.errorWrongSummary);
+                
                 return EnterSummary();
             }
             else
@@ -42,16 +44,28 @@ namespace OOP_Task5
         public Priority EnterPriority()
         {
             Console.WriteLine(Constants.enterTaskPriority);
-            string priorityInput = Console.ReadLine();          
-            Priority priority = (Priority)Convert.ToInt32(priorityInput);
-            return priority;
+
+            string priorityInput = Console.ReadLine();
+           
+            if (validationHelper.IsNumeric(priorityInput) == true)
+            {
+                Priority priority = (Priority)Convert.ToInt32(priorityInput);
+                return priority;
+            }
+            else
+            {
+                return EnterPriority();
+            }
+          
         }
 
         public Difficulty EnterDifficulty()
         {
             Console.WriteLine(Constants.enterTaskDifficulty);
+
             string difficultyInput = Console.ReadLine();
             Difficulty difficulty = (Difficulty)Convert.ToInt32(difficultyInput);
+            
             return difficulty;
         }
 
