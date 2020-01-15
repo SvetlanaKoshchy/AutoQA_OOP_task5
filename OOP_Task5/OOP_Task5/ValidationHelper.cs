@@ -18,7 +18,7 @@ namespace OOP_Task5
                 return false;
             }
         }
-        public bool IsPositive(double value) //method to check if value positive
+        public bool IsPositive(int value) //method to check if value positive
         {
             if (value > 0)
             {
@@ -26,6 +26,7 @@ namespace OOP_Task5
             }
             else
             {
+                Console.WriteLine(Constants.errorValueIsWrong);
                 return false;
             }
         }

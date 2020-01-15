@@ -9,14 +9,6 @@ namespace OOP_Task5
         private ValidationHelper validationHelper = new ValidationHelper();
 
 
-        //public void EnterNewTasks()
-        //{
-        //    Console.WriteLine(Constants.enterNewTask);
-        //    string value = Console.ReadLine();
-        //    if (value = )
-
-        //}
-
         public void AddTask()
         {
             Task task = new Task(EnterSummary(), EnterPriority(), EnterDifficulty());
@@ -61,11 +53,20 @@ namespace OOP_Task5
         public Difficulty EnterDifficulty()
         {
             Console.WriteLine(Constants.enterTaskDifficulty);
-
             string difficultyInput = Console.ReadLine();
-            Difficulty difficulty = (Difficulty)Convert.ToInt32(difficultyInput);
 
-            return difficulty;
+            if (validationHelper.IsNumeric(difficultyInput) == true)
+            {
+
+                Difficulty difficulty = (Difficulty)Convert.ToInt32(difficultyInput);
+                return difficulty;
+            }
+            else
+            {
+                return EnterDifficulty();
+            }
+
+
         }
 
     }
