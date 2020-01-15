@@ -6,7 +6,9 @@ namespace OOP_Task5
     public class TaskManager
     {
         private List<Task> TaskList = new List<Task>();
-        private static ValidationHelper validationHelper;
+        //private static ValidationHelper validationHelper;
+
+        ValidationHelper validationHelper = new ValidationHelper();
 
 
         //public void EnterNewTasks()
