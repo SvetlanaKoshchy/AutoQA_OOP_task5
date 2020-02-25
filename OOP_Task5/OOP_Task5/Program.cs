@@ -7,7 +7,7 @@ namespace OOP_Task5
         static void Main(string[] args)
         {
             TaskManager task = new TaskManager();
-            task.AddTask();
+            task.AddNewTask();
             
         }
     }

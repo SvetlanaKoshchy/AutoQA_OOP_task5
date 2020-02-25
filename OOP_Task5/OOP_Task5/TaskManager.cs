@@ -15,7 +15,30 @@ namespace OOP_Task5
             TaskList.Add(task);
         }
 
-        public string EnterSummary()
+        public void AddNewTask()
+        {
+
+
+            if (TaskList.Count == 0)
+            {
+                AddTask();
+                AddNewTask();
+            }
+            Console.WriteLine(Constants.enterNewTask);
+            string inputString = Console.ReadLine();
+
+            if (validationHelper.IsYesOrNo(inputString))
+            {
+                AddTask();
+                AddNewTask();
+            }
+            else
+            {
+                CountTaskTime();
+            }
+        }
+
+            public string EnterSummary()
         {
             Console.WriteLine(Constants.enterTaskSummary);
 
@@ -65,9 +88,39 @@ namespace OOP_Task5
             {
                 return EnterDifficulty();
             }
+            
+        }
+
+        public void CountTaskTime()
+        {
+            int totalTaskTime = 0;
+            for (int i = 0; i < TaskList.Count; i++)
+            {
+                var task = TaskList[i];
+                var difficulty = task.Difficulty;
+                int variable = validationHelper.TimeFromDifficulty(difficulty);
+                totalTaskTime += variable;
+            }
+
+            Console.WriteLine("TOTAL TIME FOR TASKS = {0} hours", totalTaskTime);
+        }
+
+        public void showTaskByPriority()
+        {
+            var enteredPriority = EnterPriority();
+            for (int i = 0; i < TaskList.Count; i++)
+            {
+                var task = TaskList[i];
+                var taskPriority = task.Priority;
+
+                if (enteredPriority == taskPriority)
+                {
+                    Console.WriteLine(task.TaskSummary);
+                }
+
+            }
 
 
         }
-
     }
 }
