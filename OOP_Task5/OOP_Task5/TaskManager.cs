@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace OOP_Task5
 {
@@ -35,6 +36,7 @@ namespace OOP_Task5
             {
                 CountTaskTime();
                 ShowTaskByPriority();
+                //ShowTasksPerDay();
             }
         }
 
@@ -66,8 +68,8 @@ namespace OOP_Task5
                 Priority priority = (Priority)Convert.ToInt32(priorityInput);
 
                 if (Enum.IsDefined(typeof(Priority), priority) == true)
-                { 
-                    return priority;                
+                {
+                    return priority;
                 }
                 else
                 {
@@ -122,9 +124,12 @@ namespace OOP_Task5
             Console.WriteLine("TOTAL TIME FOR TASKS = {0} hours", totalTaskTime);
         }
 
+
         public void ShowTaskByPriority()
         {
+            Console.WriteLine("To show your task by PRIORITY ");
             var enteredPriority = EnterPriority();
+
             for (int i = 0; i < TaskList.Count; i++)
             {
                 var task = TaskList[i];
@@ -132,22 +137,44 @@ namespace OOP_Task5
 
                 if (enteredPriority == taskPriority)
                 {
-                    Console.WriteLine("SUMMARY of TASK BY SELECTED PRIOIRITY {0}: {1}", task.Priority, task.TaskSummary);
+                   Console.WriteLine(Constants.showTaskByPriority, enteredPriority, task.TaskSummary, task.Priority, task.Difficulty);                    
                 }
                 else
-                {
-                    Console.WriteLine("NO TASKS FOUND BY SELECTED PRIOIRITY {0}", enteredPriority);
+                {                 
+                    Console.WriteLine(Constants.noTasksByPriority, enteredPriority);  //need to fix dublicate records
                 }
-
             }
-
         }
 
-        public void ShowTaskPerDay()
+
+        public void ShowTasksPerDay()
         {
             Console.WriteLine(Constants.enterAmountOfDays);
+            string enteredDaysAmount = Console.ReadLine();
 
-
+            if (validationHelper.IsNumeric(enteredDaysAmount) == true)
+            {
+       
+                int daysAmount = Convert.ToInt32(enteredDaysAmount);
+                TaskList = TaskList.OrderBy(x => (int)(x.Priority)).ToList();
+                
+                for (int i = 0; i < TaskList.Count; i++) 
+                {
+                    int resultValue = 0;
+                    var task = TaskList[i];
+                    if(resultValue+validationHelper.TimeFromDifficulty(task.Difficulty)<= daysAmount * Constants.workDayHours)
+                    {
+                        resultValue += validationHelper.TimeFromDifficulty(task.Difficulty);
+                        Console.WriteLine(task.TaskSummary, task.Priority, task.Difficulty); //show ordered tasks by priority  
+                    }
+                                     
+                }
+            }
+            else
+            {
+                Console.WriteLine("Enered number of days is wrong.");
+                ShowTasksPerDay();
+            }
         }
     }
 }
