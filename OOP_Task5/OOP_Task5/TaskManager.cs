@@ -18,7 +18,6 @@ namespace OOP_Task5
         public void AddNewTask()
         {
 
-
             if (TaskList.Count == 0)
             {
                 AddTask();
@@ -39,7 +38,7 @@ namespace OOP_Task5
             }
         }
 
-            public string EnterSummary()
+        public string EnterSummary()
         {
             Console.WriteLine(Constants.enterTaskSummary);
 
@@ -65,7 +64,16 @@ namespace OOP_Task5
             if (validationHelper.IsNumeric(priorityInput) == true)
             {
                 Priority priority = (Priority)Convert.ToInt32(priorityInput);
-                return priority;
+
+                if (Enum.IsDefined(typeof(Priority), priority) == true)
+                { 
+                    return priority;                
+                }
+                else
+                {
+                    Console.WriteLine(Constants.errorTaskPriority);
+                    return EnterPriority();
+                }
             }
             else
             {
@@ -83,13 +91,21 @@ namespace OOP_Task5
             {
 
                 Difficulty difficulty = (Difficulty)Convert.ToInt32(difficultyInput);
-                return difficulty;
+                if (Enum.IsDefined(typeof(Difficulty), difficulty) == true)
+                {
+                    return difficulty;
+                }
+                else
+                {
+                    Console.WriteLine(Constants.errorTaskDifficulty);
+                    return EnterDifficulty();
+                }
             }
             else
             {
                 return EnterDifficulty();
             }
-            
+
         }
 
         public void CountTaskTime()
@@ -106,7 +122,7 @@ namespace OOP_Task5
             Console.WriteLine("TOTAL TIME FOR TASKS = {0} hours", totalTaskTime);
         }
 
-        public void ShowTaskByPriority() //add check bo tasks forun by selected priority
+        public void ShowTaskByPriority()
         {
             var enteredPriority = EnterPriority();
             for (int i = 0; i < TaskList.Count; i++)
@@ -128,8 +144,10 @@ namespace OOP_Task5
         }
 
         public void ShowTaskPerDay()
-        { 
-        
+        {
+            Console.WriteLine(Constants.enterAmountOfDays);
+
+
         }
     }
 }
