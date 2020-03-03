@@ -35,6 +35,7 @@ namespace OOP_Task5
             else
             {
                 CountTaskTime();
+                ShowTaskByPriority();
             }
         }
 
@@ -105,7 +106,7 @@ namespace OOP_Task5
             Console.WriteLine("TOTAL TIME FOR TASKS = {0} hours", totalTaskTime);
         }
 
-        public void showTaskByPriority()
+        public void ShowTaskByPriority() //add check bo tasks forun by selected priority
         {
             var enteredPriority = EnterPriority();
             for (int i = 0; i < TaskList.Count; i++)
@@ -115,12 +116,20 @@ namespace OOP_Task5
 
                 if (enteredPriority == taskPriority)
                 {
-                    Console.WriteLine(task.TaskSummary);
+                    Console.WriteLine("SUMMARY of TASK BY SELECTED PRIOIRITY {0}: {1}", task.Priority, task.TaskSummary);
+                }
+                else
+                {
+                    Console.WriteLine("NO TASKS FOUND BY SELECTED PRIOIRITY {0}", enteredPriority);
                 }
 
             }
 
+        }
 
+        public void ShowTaskPerDay()
+        { 
+        
         }
     }
 }

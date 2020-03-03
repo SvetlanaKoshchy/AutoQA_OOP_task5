@@ -15,7 +15,7 @@ namespace OOP_Task5
         public const string errorWrongSummary = "Summary can not be bull or empty.";
         public const string errorValueIsWrong = "Enetered value is wrong. Please, try again.";
 
-        public const string enterNewTask = "Enter Y if you want to enter new task. Ente N if not.";
+        public const string enterNewTask = "Enter Y if you want to enter new task. Enter N if not.";
 
         public const string enterAmountOfDays = "Please, enter amount of days:";
         public const string errorAmountOfDaysIsWrong = "Entered amount of days is wrong. Please, enter correct amount of days again.";
