@@ -138,14 +138,13 @@ namespace OOP_Task5
                 if (enteredPriority == taskPriority)
                 {
                    Console.WriteLine(Constants.showTaskByPriority, enteredPriority, task.TaskSummary, task.Priority, task.Difficulty);                    
-                }
+                }               
                 else
                 {                 
                     Console.WriteLine(Constants.noTasksByPriority, enteredPriority);  //need to fix dublicate records
                 }
             }
         }
-
 
         public void ShowTasksPerDay()
         {
