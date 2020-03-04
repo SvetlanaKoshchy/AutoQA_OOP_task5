@@ -34,9 +34,10 @@ namespace OOP_Task5
             }
             else
             {
-                CountTaskTime();
-                ShowTaskByPriority();
-                ShowTasksPerDay();
+                //CountTaskTime();
+                //ShowTasksPerDay();
+                //ShowTaskByPriority();
+                
             }
         }
 
