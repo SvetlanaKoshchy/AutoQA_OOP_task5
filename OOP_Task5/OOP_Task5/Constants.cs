@@ -12,8 +12,8 @@ namespace OOP_Task5
 
         public const string enterTaskPriority = "Please, enter task PRIORITY, where 1 - High, 2 - Medium, 3 - Low:";
         public const string errorTaskPriority = "PRIORITY for enetered value does NOT exist. Enter PRIORITY value again.";
-        public const string showTaskByPriority = "TASK BY SELECTED PRIOIRITY {0}: Summary: {1}, Priority: {2}, Difficulty: {3}";
-        public const string noTasksByPriority = "NO TASKS FOUND BY SELECTED PRIOIRITY {0}";
+        public const string showTaskByPriority = "Task by selcted PRIOIRITY {0}: Summary: {1}, Priority: {2}, Difficulty: {3}";
+        public const string noTasksByPriority = "There are no tasks founded by selected PRIOIRITY {0}";
 
         public const string enterTaskDifficulty = "Please, enter task DIFFICULTY, 1 - Hard, 2 - Medium , 3 - Easy:";
         public const string errorTaskDifficulty = "DIFFICULTY for enetered value does NOT exist. Enter DIFFICULTY value again.";
