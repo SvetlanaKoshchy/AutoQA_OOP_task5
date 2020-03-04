@@ -137,10 +137,14 @@ namespace OOP_Task5
 
                 if (enteredPriority == taskPriority)
                 {
-                   Console.WriteLine(Constants.showTaskByPriority, enteredPriority, task.TaskSummary, task.Priority, task.Difficulty);                    
-                }               
-                else
-                {                 
+                    Console.WriteLine(Constants.showTaskByPriority, enteredPriority, task.TaskSummary, task.Priority, task.Difficulty);
+                }
+                else if (enteredPriority != taskPriority)
+                {
+                    continue;
+                    
+                }
+                else {
                     Console.WriteLine(Constants.noTasksByPriority, enteredPriority);  //need to fix dublicate records
                 }
             }
@@ -156,16 +160,18 @@ namespace OOP_Task5
        
                 int daysAmount = Convert.ToInt32(enteredDaysAmount);
                 TaskList = TaskList.OrderBy(x => (int)(x.Priority)).ToList();
-                
+                int resultValue = 0;
+
                 for (int i = 0; i < TaskList.Count; i++) 
                 {
-                    int resultValue = 0;
-                    var task = TaskList[i];
-                    if(resultValue+validationHelper.TimeFromDifficulty(task.Difficulty)<= daysAmount * Constants.workDayHours)
+
+                    //var task = TaskList[i];
+                    if (resultValue + validationHelper.TimeFromDifficulty(TaskList[i].Difficulty) <= daysAmount * Constants.workDayHours)
                     {
-                        resultValue += validationHelper.TimeFromDifficulty(task.Difficulty);
-                        Console.WriteLine(task.TaskSummary, task.Priority, task.Difficulty); //show ordered tasks by priority  
-                    }
+                        resultValue += validationHelper.TimeFromDifficulty(TaskList[i].Difficulty);
+                        //Console.WriteLine("Ordered tasks by priority {0}, {1}, {2}", TaskList[i].TaskSummary, TaskList[i].Priority, TaskList[i].Difficulty); //show ordered tasks by priority 
+                        Console.WriteLine("Task time {0}", resultValue);
+                    }                    
                                      
                 }
             }
