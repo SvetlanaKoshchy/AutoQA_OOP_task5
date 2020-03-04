@@ -144,7 +144,7 @@ namespace OOP_Task5
                     continue;                    
                 }
                 else {
-                    Console.WriteLine(Constants.noTasksByPriority, enteredPriority);  //don't WORK
+                    Console.WriteLine(Constants.noTasksByPriority, enteredPriority);  //don't WORK.NEED TO BE FIXED if no items by eneteres priority
                 }
             }
         }
@@ -158,7 +158,7 @@ namespace OOP_Task5
             {
        
                 int daysAmount = Convert.ToInt32(enteredDaysAmount);
-                TaskList = TaskList.OrderBy(x => (int)(x.Priority)).ToList();
+                TaskList = TaskList.OrderBy(x => (int)(x.Priority)).ToList(); 
                 int resultValue = 0;
 
                 for (int i = 0; i < TaskList.Count; i++) 
