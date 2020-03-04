@@ -60,7 +60,7 @@ namespace OOP_Task5
 
         public Priority EnterPriority()
         {
-            Console.WriteLine(Constants.enterTaskPriority);
+            Console.WriteLine(Constants.enterTaskPriority);            
             string priorityInput = Console.ReadLine();
 
             if (validationHelper.IsNumeric(priorityInput) == true)
@@ -73,14 +73,11 @@ namespace OOP_Task5
                 }
                 else
                 {
-                    Console.WriteLine(Constants.errorTaskPriority);
-                    return EnterPriority();
+                    Console.WriteLine(Constants.errorTaskPriority);                    
                 }
             }
-            else
-            {
-                return EnterPriority();
-            }
+
+            return EnterPriority();
 
         }
 
@@ -93,20 +90,18 @@ namespace OOP_Task5
             {
 
                 Difficulty difficulty = (Difficulty)Convert.ToInt32(difficultyInput);
+
                 if (Enum.IsDefined(typeof(Difficulty), difficulty) == true)
                 {
                     return difficulty;
                 }
                 else
                 {
-                    Console.WriteLine(Constants.errorTaskDifficulty);
-                    return EnterDifficulty();
+                    Console.WriteLine(Constants.errorTaskDifficulty);                    
                 }
             }
-            else
-            {
-                return EnterDifficulty();
-            }
+          
+            return EnterDifficulty();            
 
         }
 
@@ -129,11 +124,15 @@ namespace OOP_Task5
         {
             Console.WriteLine("To show your task by PRIORITY ");
             var enteredPriority = EnterPriority();
+            var enteredPriority = EnterPriority();            
+
+            bool IfPriorityFinded = false;
 
             for (int i = 0; i < TaskList.Count; i++)
             {
                 var task = TaskList[i];
                 var taskPriority = task.Priority;
+
 
                 if (enteredPriority == taskPriority)
                 {
@@ -141,11 +140,13 @@ namespace OOP_Task5
                 }
                 else if (enteredPriority != taskPriority)
                 {
-                    continue;                    
                 }
-                else {
-                    Console.WriteLine(Constants.noTasksByPriority, enteredPriority);  //don't WORK.NEED TO BE FIXED if no items by eneteres priority
-                }
+
+            }
+
+            if (IfPriorityFinded == false)
+            {
+                Console.WriteLine(Constants.noTasksByPriority, enteredPriority);  
             }
         }
 
@@ -155,15 +156,13 @@ namespace OOP_Task5
             string enteredDaysAmount = Console.ReadLine();
 
             if (validationHelper.IsNumeric(enteredDaysAmount) == true)
-            {
-       
+            {       
                 int daysAmount = Convert.ToInt32(enteredDaysAmount);
                 TaskList = TaskList.OrderBy(x => (int)(x.Priority)).ToList(); 
                 int resultValue = 0;
 
                 for (int i = 0; i < TaskList.Count; i++) 
                 {
-
                     var task = TaskList[i];
                     if (resultValue + validationHelper.TimeFromDifficulty(task.Difficulty) <= daysAmount * Constants.workDayHours)
                     {
