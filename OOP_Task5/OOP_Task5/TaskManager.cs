@@ -36,7 +36,7 @@ namespace OOP_Task5
             {
                 CountTaskTime();
                 ShowTaskByPriority();
-                //ShowTasksPerDay();
+                ShowTasksPerDay();
             }
         }
 
@@ -141,11 +141,10 @@ namespace OOP_Task5
                 }
                 else if (enteredPriority != taskPriority)
                 {
-                    continue;
-                    
+                    continue;                    
                 }
                 else {
-                    Console.WriteLine(Constants.noTasksByPriority, enteredPriority);  //need to fix dublicate records
+                    Console.WriteLine(Constants.noTasksByPriority, enteredPriority);  //don't WORK
                 }
             }
         }
@@ -165,13 +164,13 @@ namespace OOP_Task5
                 for (int i = 0; i < TaskList.Count; i++) 
                 {
 
-                    //var task = TaskList[i];
-                    if (resultValue + validationHelper.TimeFromDifficulty(TaskList[i].Difficulty) <= daysAmount * Constants.workDayHours)
+                    var task = TaskList[i];
+                    if (resultValue + validationHelper.TimeFromDifficulty(task.Difficulty) <= daysAmount * Constants.workDayHours)
                     {
-                        resultValue += validationHelper.TimeFromDifficulty(TaskList[i].Difficulty);
-                        //Console.WriteLine("Ordered tasks by priority {0}, {1}, {2}", TaskList[i].TaskSummary, TaskList[i].Priority, TaskList[i].Difficulty); //show ordered tasks by priority 
-                        Console.WriteLine("Task time {0}", resultValue);
-                    }                    
+                        resultValue += validationHelper.TimeFromDifficulty(task.Difficulty);
+                       
+                        Console.WriteLine("Task to execute by priority: {0}, {1}, {2}", task.TaskSummary, task.Priority, task.Difficulty);                         
+                    }                
                                      
                 }
             }
