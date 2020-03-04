@@ -169,14 +169,14 @@ namespace OOP_Task5
                     {
                         resultValue += validationHelper.TimeFromDifficulty(task.Difficulty);
                        
-                        Console.WriteLine("Task to execute by priority: {0}, {1}, {2}", task.TaskSummary, task.Priority, task.Difficulty);                         
+                        Console.WriteLine(Constants.showTasksByPriorityPerDay, task.TaskSummary, task.Priority, task.Difficulty);                         
                     }                
                                      
                 }
             }
             else
             {
-                Console.WriteLine("Enered number of days is wrong.");
+                Console.WriteLine(Constants.errorAmountOfDaysIsWrong);
                 ShowTasksPerDay();
             }
         }

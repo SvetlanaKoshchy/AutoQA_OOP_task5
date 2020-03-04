@@ -26,6 +26,8 @@ namespace OOP_Task5
         public const string enterAmountOfDays = "Please, enter amount of days:";
         public const string errorAmountOfDaysIsWrong = "Entered amount of days is wrong. Please, enter correct amount of days again.";
 
+        public const string showTasksByPriorityPerDay = "Task to execute by priority: {0}, {1}, {2}";
+
 
     }
 }
