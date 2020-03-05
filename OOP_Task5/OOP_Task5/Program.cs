@@ -10,8 +10,7 @@ namespace OOP_Task5
             task.AddNewTask();
             task.CountTaskTime();
             task.ShowTaskByPriority();
-            task.ShowTasksPerDay();
-            
+            task.ShowTasksPerDay();            
 
         }
     }

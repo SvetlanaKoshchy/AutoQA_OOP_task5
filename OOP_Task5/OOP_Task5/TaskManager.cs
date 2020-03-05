@@ -8,8 +8,8 @@ namespace OOP_Task5
     {
         private List<Task> TaskList = new List<Task>();
         private ValidationHelper validationHelper = new ValidationHelper();
-               
-        
+
+
         public void CreateEneredTask()
         {
             Task task = new Task(EnterSummary(), EnterPriority(), EnterDifficulty());
@@ -26,9 +26,9 @@ namespace OOP_Task5
                 Console.WriteLine(Constants.enterNewTask);
                 inputString = Console.ReadLine();
             }
-              
+
         }
-     
+
         public string EnterSummary()
         {
             Console.WriteLine(Constants.enterTaskSummary);
@@ -49,7 +49,7 @@ namespace OOP_Task5
 
         public Priority EnterPriority()
         {
-            Console.WriteLine(Constants.enterTaskPriority);            
+            Console.WriteLine(Constants.enterTaskPriority);
             string priorityInput = Console.ReadLine();
 
             if (validationHelper.IsNumeric(priorityInput) == true)
@@ -62,7 +62,7 @@ namespace OOP_Task5
                 }
                 else
                 {
-                    Console.WriteLine(Constants.errorTaskPriority);                    
+                    Console.WriteLine(Constants.errorTaskPriority);
                 }
             }
 
@@ -86,12 +86,28 @@ namespace OOP_Task5
                 }
                 else
                 {
-                    Console.WriteLine(Constants.errorTaskDifficulty);                    
+                    Console.WriteLine(Constants.errorTaskDifficulty);
                 }
             }
-          
-            return EnterDifficulty();            
 
+            return EnterDifficulty();
+
+        }
+
+        public int EnterAmountOfDays()
+        {
+            Console.WriteLine(Constants.enterAmountOfDays);
+            string enteredDaysAmount = Console.ReadLine();
+            if (validationHelper.IsNumeric(enteredDaysAmount) == true)
+            {
+                int daysAmount = Convert.ToInt32(enteredDaysAmount);
+                if (validationHelper.IsPositive(daysAmount) == true)
+                {
+                    return daysAmount;
+                }
+            }
+            
+            return EnterAmountOfDays();
         }
 
         public void CountTaskTime()
@@ -112,7 +128,7 @@ namespace OOP_Task5
         public void ShowTaskByPriority()
         {
             Console.WriteLine(Constants.infoToShowByPriority);
-            var enteredPriority = EnterPriority();            
+            var enteredPriority = EnterPriority();
 
             bool IfPriorityFinded = false;
 
@@ -132,31 +148,31 @@ namespace OOP_Task5
 
             if (IfPriorityFinded == false)
             {
-                Console.WriteLine(Constants.noTasksByPriority, enteredPriority);  
+                Console.WriteLine(Constants.noTasksByPriority, enteredPriority);
             }
         }
 
-        public void ShowTasksPerDay()
+        /*public void ShowTasksPerDay()
         {
             Console.WriteLine(Constants.enterAmountOfDays);
             string enteredDaysAmount = Console.ReadLine();
 
             if (validationHelper.IsNumeric(enteredDaysAmount) == true)
-            {       
+            {
                 int daysAmount = Convert.ToInt32(enteredDaysAmount);
-                TaskList = TaskList.OrderBy(x => (int)(x.Priority)).ToList(); 
+                TaskList = TaskList.OrderBy(x => (int)(x.Priority)).ToList();
                 int resultValue = 0;
 
-                for (int i = 0; i < TaskList.Count; i++) 
+                for (int i = 0; i < TaskList.Count; i++)
                 {
                     var task = TaskList[i];
                     if (resultValue + validationHelper.TimeFromDifficulty(task.Difficulty) <= daysAmount * Constants.workDayHours)
                     {
                         resultValue += validationHelper.TimeFromDifficulty(task.Difficulty);
-                       
-                        Console.WriteLine(Constants.showTasksByPriorityPerDay, task.TaskSummary, task.Priority, task.Difficulty);                         
-                    }                
-                                     
+
+                        Console.WriteLine(Constants.showTasksByPriorityPerDay, task.TaskSummary, task.Priority, task.Difficulty);
+                    }
+
                 }
             }
             else
@@ -164,6 +180,24 @@ namespace OOP_Task5
                 Console.WriteLine(Constants.errorAmountOfDaysIsWrong);
                 ShowTasksPerDay();
             }
+        }*/
+
+        public void ShowTasksPerDay()
+        {
+            TaskList = TaskList.OrderBy(x => (int)(x.Priority)).ToList();
+            int resultValue = 0;
+            int hoursForTasks = EnterAmountOfDays() * Constants.workDayHours;
+            for (int i = 0; i < TaskList.Count; i++)
+            {
+                var task = TaskList[i];
+                if (resultValue + validationHelper.TimeFromDifficulty(task.Difficulty) <= hoursForTasks)
+                {
+                    resultValue += validationHelper.TimeFromDifficulty(task.Difficulty);
+
+                    Console.WriteLine(Constants.showTasksByPriorityPerDay, task.TaskSummary, task.Priority, task.Difficulty);
+                }
+            }
+
         }
     }
 }
