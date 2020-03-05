@@ -19,7 +19,7 @@ namespace OOP_Task5
         public void AddNewTask()
         {
             string inputString = "Y";
-            while (validationHelper.IsYesOrNo(inputString) == true)
+            while (validationHelper.IsYesOrNo(inputString))
             {
                 CreateEneredTask();
 

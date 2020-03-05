@@ -12,11 +12,10 @@ namespace OOP_Task5
             {
                 return true;
             }
-            else
-            {
+            
                 Console.WriteLine(Constants.errorValueIsWrong);
                 return false;
-            }
+            
         }
         public bool IsPositive(int value) //method to check if value positive
         {
@@ -24,21 +23,15 @@ namespace OOP_Task5
             {
                 return true;
             }
-            else
-            {
+           
                 Console.WriteLine(Constants.errorValueIsWrong);
                 return false;
-            }
+            
         }
 
         public bool IsYesOrNo(string value)
-        {            
-            if (value.Equals("Y", StringComparison.InvariantCultureIgnoreCase))
-            {
-                return true;
-            }
-            
-            return false;
+        {
+            return value.Equals("Y", StringComparison.InvariantCultureIgnoreCase);
         }
 
         public int TimeFromDifficulty(Difficulty difficulty)
