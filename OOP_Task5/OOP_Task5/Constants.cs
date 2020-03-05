@@ -24,13 +24,12 @@ namespace OOP_Task5
         public const string showTotalTimeForTasks = "TOTAL TIME FOR TASKS = {0} hours";
 
         public const string errorWrongSummary = "Summary can not be null or empty.";
-        public const string errorValueIsWrong = "Enetered value is wrong. Please, try again.";
+        public const string errorValueIsWrong = "Enetered value is wrong. It should be numeric and greater than 0. Please, try again.";
 
         public const string enterNewTask = "Enter Y if you want to enter new task. Press any key if not.";
         public const string infoToShowByPriority = "To show your task by PRIORITY";
 
         public const string enterAmountOfDays = "Please, enter amount of days:";
-        public const string errorAmountOfDaysIsWrong = "Entered amount of days is wrong. Please, enter correct amount of days again.";
 
         public const string showTasksByPriorityPerDay = "Task to execute by priority: {0}, {1}, {2}";
 

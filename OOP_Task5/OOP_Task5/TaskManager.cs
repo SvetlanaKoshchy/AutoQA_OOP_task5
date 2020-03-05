@@ -152,35 +152,6 @@ namespace OOP_Task5
             }
         }
 
-        /*public void ShowTasksPerDay()
-        {
-            Console.WriteLine(Constants.enterAmountOfDays);
-            string enteredDaysAmount = Console.ReadLine();
-
-            if (validationHelper.IsNumeric(enteredDaysAmount) == true)
-            {
-                int daysAmount = Convert.ToInt32(enteredDaysAmount);
-                TaskList = TaskList.OrderBy(x => (int)(x.Priority)).ToList();
-                int resultValue = 0;
-
-                for (int i = 0; i < TaskList.Count; i++)
-                {
-                    var task = TaskList[i];
-                    if (resultValue + validationHelper.TimeFromDifficulty(task.Difficulty) <= daysAmount * Constants.workDayHours)
-                    {
-                        resultValue += validationHelper.TimeFromDifficulty(task.Difficulty);
-
-                        Console.WriteLine(Constants.showTasksByPriorityPerDay, task.TaskSummary, task.Priority, task.Difficulty);
-                    }
-
-                }
-            }
-            else
-            {
-                Console.WriteLine(Constants.errorAmountOfDaysIsWrong);
-                ShowTasksPerDay();
-            }
-        }*/
 
         public void ShowTasksPerDay()
         {
