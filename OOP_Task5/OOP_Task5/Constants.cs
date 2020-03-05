@@ -27,6 +27,7 @@ namespace OOP_Task5
         public const string errorValueIsWrong = "Enetered value is wrong. Please, try again.";
 
         public const string enterNewTask = "Enter Y if you want to enter new task. Press any key if not.";
+        public const string infoToShowByPriority = "To show your task by PRIORITY";
 
         public const string enterAmountOfDays = "Please, enter amount of days:";
         public const string errorAmountOfDaysIsWrong = "Entered amount of days is wrong. Please, enter correct amount of days again.";

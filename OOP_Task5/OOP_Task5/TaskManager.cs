@@ -123,7 +123,7 @@ namespace OOP_Task5
 
         public void ShowTaskByPriority()
         {
-            Console.WriteLine("To show your task by PRIORITY ");
+            Console.WriteLine(Constants.infoToShowByPriority);
             var enteredPriority = EnterPriority();            
 
             bool IfPriorityFinded = false;
