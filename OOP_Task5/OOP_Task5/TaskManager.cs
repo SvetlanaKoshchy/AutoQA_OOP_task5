@@ -34,9 +34,9 @@ namespace OOP_Task5
             }
             else
             {
-                //CountTaskTime();
-                //ShowTasksPerDay();
-                //ShowTaskByPriority();
+                CountTaskTime();
+                ShowTasksPerDay();
+                ShowTaskByPriority();
                 
             }
         }
@@ -117,7 +117,7 @@ namespace OOP_Task5
                 totalTaskTime += variable;
             }
 
-            Console.WriteLine("TOTAL TIME FOR TASKS = {0} hours", totalTaskTime);
+            Console.WriteLine(Constants.showTotalTimeForTasks, totalTaskTime);
         }
 
 

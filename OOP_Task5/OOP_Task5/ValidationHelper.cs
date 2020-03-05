@@ -46,11 +46,11 @@ namespace OOP_Task5
             switch (difficulty)
             {
                 case Difficulty.Hard:
-                    return 4;
+                    return Constants.highHoursDifficulty;
                 case Difficulty.Medium:
-                    return 2;
+                    return Constants.mediumHoursDifficulty;
                 case Difficulty.Easy:
-                    return 1;
+                    return Constants.easyHoursDifficulty;
                 default:
                     return 0;
             }
