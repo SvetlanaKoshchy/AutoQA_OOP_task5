@@ -8,52 +8,27 @@ namespace OOP_Task5
     {
         private List<Task> TaskList = new List<Task>();
         private ValidationHelper validationHelper = new ValidationHelper();
-
-
-        public void AddTask()
+               
+        
+        public void CreateEneredTask()
         {
             Task task = new Task(EnterSummary(), EnterPriority(), EnterDifficulty());
             TaskList.Add(task);
         }
 
-        public void AddNewTask2()
-        {
-            string inputString1;
-            do
-            {
-                Task task = new Task(EnterSummary(), EnterPriority(), EnterDifficulty());
-                TaskList.Add(task);
-                Console.WriteLine(Constants.enterNewTask);
-                inputString1 = Console.ReadLine();
-            }
-            while (validationHelper.IsYesOrNo(inputString1) == true);                    
-        }
-
         public void AddNewTask()
         {
+            string inputString = "Y";
+            while (validationHelper.IsYesOrNo(inputString) == true)
+            {
+                CreateEneredTask();
 
-            if (TaskList.Count == 0)
-            {
-                AddTask();
-                AddNewTask();
+                Console.WriteLine(Constants.enterNewTask);
+                inputString = Console.ReadLine();
             }
-            Console.WriteLine(Constants.enterNewTask);
-            string inputString = Console.ReadLine();
-
-            if (validationHelper.IsYesOrNo(inputString))
-            {
-                AddTask();
-                AddNewTask();
-            }
-            else
-            {
-                CountTaskTime();
-                ShowTasksPerDay();
-                ShowTaskByPriority();
-                
-            }
+              
         }
-
+     
         public string EnterSummary()
         {
             Console.WriteLine(Constants.enterTaskSummary);
