@@ -16,6 +16,19 @@ namespace OOP_Task5
             TaskList.Add(task);
         }
 
+        public void AddNewTask2()
+        {
+            string inputString1;
+            do
+            {
+                Task task = new Task(EnterSummary(), EnterPriority(), EnterDifficulty());
+                TaskList.Add(task);
+                Console.WriteLine(Constants.enterNewTask);
+                inputString1 = Console.ReadLine();
+            }
+            while (validationHelper.IsYesOrNo(inputString1) == true);                    
+        }
+
         public void AddNewTask()
         {
 

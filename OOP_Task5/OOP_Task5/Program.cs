@@ -7,7 +7,13 @@ namespace OOP_Task5
         static void Main(string[] args)
         {
             TaskManager task = new TaskManager();
-            task.AddNewTask();
+            //task.AddTask();
+            task.AddNewTask2();
+
+            task.CountTaskTime();
+            task.ShowTaskByPriority();
+            task.ShowTasksPerDay();
+            
 
         }
     }
